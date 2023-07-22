@@ -72,3 +72,7 @@ hamitudes/README.md
 
 # Ignore any user secrets
 *secret*
+
+playground/package*
+playground/node_modules/
+

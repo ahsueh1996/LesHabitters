@@ -1,3 +1,10 @@
+//  = require('web3')
+var { Web3 } = require('web3');
+var abi = require('../wp-plugin/hamitudes/hamitudes/abi.json')
+// console.log('web3: ', Web3)
+
+// console.log('abi anonymous: ', abi.anonymous)
+
 let msg = "";
 
 function makeCircles() {
@@ -16,59 +23,59 @@ function makeCircles() {
 }
 
 
-$(document).ready(function() {
-  $('#sheetsForm').submit(function(event) {
-    alert("quick-guide.js: sheetsForm submit");
-    event.preventDefault(); // Prevent form submission
+// $(document).ready(function() {
+//   $('#sheetsForm').submit(function(event) {
+//     alert("quick-guide.js: sheetsForm submit");
+//     event.preventDefault(); // Prevent form submission
 
-    var sheetsUrl = $('#sheetsUrl').val();
+//     var sheetsUrl = $('#sheetsUrl').val();
 
-    // Extract the Google Sheets document ID from the URL
-    var docId = extractDocId(sheetsUrl);
-    console.log(docId);
-    // API request URL to get the data from the Google Sheets
-    var apiUrl = 'https://docs.google.com/spreadsheets/d/' + docId + '/gviz/tq?tqx=out:json';
-    console.log(apiUrl);
-    // Send a GET request to the API URL
-    $.get(apiUrl, function(response) {
-      // Parse the response and extract the data
-      var data = parseGoogleSheetsResponse(response);
+//     // Extract the Google Sheets document ID from the URL
+//     var docId = extractDocId(sheetsUrl);
+//     console.log(docId);
+//     // API request URL to get the data from the Google Sheets
+//     var apiUrl = 'https://docs.google.com/spreadsheets/d/' + docId + '/gviz/tq?tqx=out:json';
+//     console.log(apiUrl);
+//     // Send a GET request to the API URL
+//     $.get(apiUrl, function(response) {
+//       // Parse the response and extract the data
+//       var data = parseGoogleSheetsResponse(response);
 
-      // Do something with the data
-      console.log(data);
-    });
-  });
+//       // Do something with the data
+//       console.log(data);
+//     });
+//   });
 
-  function extractDocId(url) {
-    var regex = /\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/;
-    var match = regex.exec(url);
-    if (match && match[1]) {
-      return match[1];
-    } else {
-      console.error('Invalid Google Sheets URL');
-    }
-  }
+//   function extractDocId(url) {
+//     var regex = /\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/;
+//     var match = regex.exec(url);
+//     if (match && match[1]) {
+//       return match[1];
+//     } else {
+//       console.error('Invalid Google Sheets URL');
+//     }
+//   }
 
-  function parseGoogleSheetsResponse(response) {
-    var json = JSON.parse(response.substr(47).slice(0, -2));
-    var data = [];
-    var rows = json.table.rows;
-    for (var i = 0; i < rows.length; i++) {
-      var row = rows[i].c;
-      var rowData = [];
-      for (var j = 0; j < row.length; j++) {
-        var value = "";
-        if (row[j]!=null) {
-          value = row[j].v;
-          if (msg=="") { msg = value; };
-        }
-        rowData.push(value);
-      }
-      data.push(rowData);
-    }
-    return data;
-  }
-});
+//   function parseGoogleSheetsResponse(response) {
+//     var json = JSON.parse(response.substr(47).slice(0, -2));
+//     var data = [];
+//     var rows = json.table.rows;
+//     for (var i = 0; i < rows.length; i++) {
+//       var row = rows[i].c;
+//       var rowData = [];
+//       for (var j = 0; j < row.length; j++) {
+//         var value = "";
+//         if (row[j]!=null) {
+//           value = row[j].v;
+//           if (msg=="") { msg = value; };
+//         }
+//         rowData.push(value);
+//       }
+//       data.push(rowData);
+//     }
+//     return data;
+//   }
+// });
 
 /**
  * ========================================
@@ -97,9 +104,11 @@ var hamitudesABI = [{"anonymous":false,"inputs":[{"indexed":false,"internalType"
 
 async function getHamitudes() {
   const web3 = new Web3('https://rpc.public.zkevm-test.net');
-  let hamitudes = new web3.eth.Contract(hamitudesABI, "0x9C1AD8f260a279845E4181b3EA80c9045d66b589");
-  hamitudes = await hamitudes.methods.getHamitudes().call();
-  console.log(hamitudes.address);
+  let hamitudes = await new web3.eth.Contract(hamitudesABI, "0x9C1AD8f260a279845E4181b3EA80c9045d66b589");
+  // console.log('hamitudes: ', hamitudes)
+  hamitudes = await hamitudes._method;
+  // hamitudes = hamitudes.getHamitudes;
+  // console.log(hamitudes.address);
   return hamitudes;
 }
 
