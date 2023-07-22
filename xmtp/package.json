@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@xmtp/xmtp-js": "^10.0.0",
+    "buffer": "^6.0.3",
+    "ethers": "^6.6.4"
+  },
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}

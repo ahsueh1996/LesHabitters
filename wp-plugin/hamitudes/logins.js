@@ -41,3 +41,10 @@ function updateMMLoginBtn(){
         document.getElementById("metamask_login_btn").innerHTML = wallet.accounts[0];
     } 
 }
+
+
+$(document).ready(function(){
+    document.getElementById("metamask_btn").addEventListener("click", async () => {
+        connectMM_MMSDK();
+    });
+});
