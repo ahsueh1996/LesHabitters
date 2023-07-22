@@ -46,18 +46,29 @@ function my_enqueue_scripts() {
     $inline_script = '
     console.log(\'this is an inline script added to demo.js\');
     ';
+
+    // Main
     wp_enqueue_script(
         'main',
         plugin_dir_url(__FILE__).'hamitudes/main.js', array(), false, true );
-    //wp_scripts()->add_data( 'main', 'type', 'text/javascript' ); // this is not working
+    //wp_scripts()->add_data( 'main', 'type', 'text/javascript' ); // this is not working, tried to allow for import statements
     wp_add_inline_script( 'main', $inline_script );
-    wp_enqueue_script(
-        'paris try, name matters for identification',
-        plugin_dir_url(__FILE__).'camera.js');
+
+    // MetaMask login.
     wp_enqueue_script(
         'web3-logins',
         plugin_dir_url(__FILE__).'logins.js');
+
+    // XMTP
     // wp_enqueue_script(
     //     'xmtp',
     //     plugin_dir_url(__FILE__).'xmtp.js');
+
+    // Camera work
+    wp_enqueue_script(
+        'cam_script',
+        plugin_dir_url(__FILE__).'camera.js');
+    wp_enqueue_style(
+        'cam_style',
+        plugin_dir_url(__FILE__).'camera.css');
 }
