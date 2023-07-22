@@ -46,3 +46,24 @@ wp-config.php
 # Note: If you wish to whitelist themes,
 # uncomment the next line
 /wp-content/themes
+
+############
+# End of WP
+############
+
+# Foundry
+
+# Compiler files
+cache/
+out/
+
+# Ignores development broadcast logs
+!/broadcast
+/broadcast/*/31337/
+/broadcast/**/dry-run/
+
+# Docs
+docs/
+
+# Dotenv file
+.env
