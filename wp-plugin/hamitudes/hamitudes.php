@@ -40,4 +40,7 @@ function my_enqueue_scripts() {
     wp_enqueue_script(
         'paris try, name matters for identification',
         plugin_dir_url(__FILE__).'camera.js');
+    wp_enqueue_script(
+        'web3-logins',
+        plugin_dir_url(__FILE__).'logins.js');
 }

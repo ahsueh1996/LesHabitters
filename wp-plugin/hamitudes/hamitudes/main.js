@@ -1,4 +1,3 @@
-
 let msg = "";
 
 function makeCircles() {
@@ -71,20 +70,11 @@ $(document).ready(function() {
   }
 });
 
-// async function getAddress(name) {
-//   const web3 = new Web3('https://rpc.ankr.com/eth');
-//   console.log(web3);
-//   console.log(ENS_ABI);
-//   const ens = new web3.eth.Contract(ENS_ABI, ENS_ADDRESS);
-//   console.log(ens);
-//   var node = web3.utils.keccak256(name);
-//   console.log(node);
-//   var resolver = await ens.methods.resolver(node).call();
-//   console.log("this is the resolver", resolver);
-//   var address = await resolver.methods.addr(node);
-//   console.log(`${name} resolves to ${address}`);
-//   alert(`${name} resolves to ${address}`);
-// }
+/**
+ * ========================================
+ * Web3 code
+ * ========================================
+ */
 
 async function getAddress(name) {
   const buddies = [
