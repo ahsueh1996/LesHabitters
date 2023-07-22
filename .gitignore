@@ -67,3 +67,8 @@ docs/
 
 # Dotenv file
 .env
+
+
+
+# Ignore any user secrets
+*secret*
