@@ -68,7 +68,7 @@ docs/
 # Dotenv file
 .env
 
-
+hamitudes/README.md
 
 # Ignore any user secrets
 *secret*
