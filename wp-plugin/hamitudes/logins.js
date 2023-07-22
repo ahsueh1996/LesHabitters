@@ -13,13 +13,31 @@ function setWallet(accounts) {
     console.log(wallet);
 }
 
-const handleConnect = async () => {                
+const connectMM_web3js = async () => {                
     let accounts = await window.ethereum.request({  
         method: "eth_requestAccounts",                
     })                                              
     setWallet(accounts);
-    if (accounts.length > 0) {
-        console.log("Connected:", accounts[0]);
-        document.getElementById("metamask_login_btn").innerHTML = accounts[0];
-    }                    
+    updateMMLoginBtn();
+                   
+}
+
+
+
+const connectMM_MMSDK = async () => {
+    console.log("connectMM_MMSDK()");
+    // code from: https://docs.metamask.io/wallet/how-to/use-sdk/javascript/pure-js/
+    const MMSDK = new MetaMaskSDK.MetaMaskSDK()
+    const ethereum = MMSDK.getProvider() // You can also access via window.ethereum
+
+    let accounts = await ethereum.request({method: 'eth_requestAccounts'})
+    setWallet(accounts);
+    updateMMLoginBtn();
+}
+
+function updateMMLoginBtn(){
+    if (wallet.accounts.length > 0) {
+        console.log("Connected:", wallet.accounts[0]);
+        document.getElementById("metamask_login_btn").innerHTML = wallet.accounts[0];
+    } 
 }
