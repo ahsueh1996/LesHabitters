@@ -16,7 +16,7 @@ function makeCamera() {
 
     webcam.start()
     .then(result =>{
-       console.log("webcam started");snapSoundElement
+       console.log("webcam started");
     })
     .catch(err => {
         console.log(err);
