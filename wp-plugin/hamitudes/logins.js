@@ -44,18 +44,13 @@ const connectMM_MMSDK = async () => {
 function updateMMLoginBtn(){
     if (wallet.accounts.length > 0) {
         console.log("Connected:", wallet.accounts[0]);
-        document.getElementById("metamask_btn").innerHTML = wallet.accounts[0];
+        document.getElementById("metamask_login_btn").innerHTML = wallet.accounts[0];
     } 
 }
 
 
 $(document).ready(function(){
-    try {
-        document.getElementById("metamask_btn").addEventListener("click", async () => {
-            connectMM_MMSDK();
-        });
-        console.log("added metamask event listener");
-    } catch {
-        console.log("metamask event listener skipped");
-    }
+    document.getElementById("metamask_btn").addEventListener("click", async () => {
+        connectMM_MMSDK();
+    });
 });
