@@ -5,7 +5,8 @@ function parse_ui_contract() {
     var stake = Number(term_num_days) * Number(term_stake_per_offense);
     var term_buddy_1 = $("#term_buddy_1").val();
     var term_buddy_2 = $("#term_buddy_2").val();
-    return {duration: term_num_days, stake: stake, buddies: [term_buddy_1, term_buddy_2]}
+    var term_upload_time = $("#term_upload_time").val();
+    return {duration: term_num_days, stake: stake, buddies: [term_buddy_1, term_buddy_2], deadline: term_upload_time};
 }
 
 function fill_ui_contract(contract) {
@@ -55,17 +56,18 @@ async function start_contract_draft() {
     document.getElementById("3b").style.display = "block";
 }
 
-function participant_sign_contract() {
+async function participant_sign_contract() {
     var contract_id = $('#contract_id').val();
     console.log("participant_sign_contract: "+contract_id);
     // Requires backend participant_sign_contract();
-    // on success
+    // const signReceipt = await signHabitContract(contract_id, stake, duration); // bounces for some reason
+    // console.log("receipt", signReceipt);
     alert("Contract signed! Make sure to upload a photo every day!");
     document.location.href = "http://44.198.57.17/h1/";
     document.body.style.zoom="50%"
 }
 
-function creator_sign_contract() {
+async function creator_sign_contract() {
     console.log("creator_sign_contract");
     if (wallet.accounts[0] == null) {
         connectMM_MMSDK();
@@ -76,9 +78,11 @@ function creator_sign_contract() {
     stake = data.stake;
     duration = data.duration;
     buddies = data.buddies;
-    // Requires backend create_contract();
-    // var contract_id = await create_contract(stake, duration, buddies);
-    contract_id = 0;
+    deadline = data.deadline;
+    // Requires backend create_contract();  
+    const createReceipt = await createHabitContract(buddies[0], stake, duration, deadline);
+    console.log("receipt", createReceipt);
+    contract_id = 0; // createReceipt.events.ContractCreated.returnValues.contractId; // the call reverts for some reason
     alert("Contract created! Please invite your buddy to sign contract number: "+contract_id);
     document.location.href = "http://44.198.57.17/h1/";
     document.body.style.zoom="50%"
