@@ -72,4 +72,9 @@ function my_enqueue_scripts() {
     wp_enqueue_style(
         'cam_style',
         plugin_dir_url(__FILE__).'camera.css');
+
+    // Buddy Contracts
+    wp_enqueue_script(
+        'buddy_contract',
+        plugin_dir_url(__FILE__).'buddy_contract.js');
 }

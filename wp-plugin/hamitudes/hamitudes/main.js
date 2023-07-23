@@ -87,22 +87,8 @@ async function getAddress(name) {
   const duration = 7; // days to build a habit
   console.log("web3", web3)
   const deadline = ethers.utils.formatBytes32String('0900'); // 9am
-  const habitId = 0;
-
-  // const createReceipt = await createHabitContract(buddies[0], stake, duration, deadline);
-  // console.log("receipt", createReceipt);
-
-  // const signReceipt = await signHabitContract(habitId, stake, duration);
-  // console.log("receipt", signReceipt);
-
-  // const proofReceipt = await proveOrBluff(habitId, true);
-  // console.log("receipt", proofReceipt);
-
-  // const challengeReceipt = await challengeProof(habitId, buddies[0], stake);
-  // console.log("receipt", challengeReceipt);
-
-  const resolveReceipt = await resolveHabit(habitId);
-  console.log("receipt", resolveReceipt);
+  const createReceipt = await createHabitContract(buddies, stake, duration, deadline);
+  console.log("receipt", createReceipt);
 
 }
 
@@ -125,10 +111,7 @@ async function createHabitContract(buddies, stake, duration, deadline) {
   const hamitudes = await getHamitudes();
   console.log("smart contract address", hamitudes);
   return hamitudes.methods.createHabitContract(buddies, stake, duration, deadline).send(
-    {
-      from: wallet.accounts[0],
-      value: stake * duration
-    }
+    {from: wallet.accounts[0]}
   );
           // .on('transactionHash', function(hash) {
           //   console.log('transactionHash', hash)
@@ -141,50 +124,35 @@ async function createHabitContract(buddies, stake, duration, deadline) {
           // });
 }
 
-// sign a habit contract
-async function signHabitContract(habitId, stake, duration) {
-  const hamitudes = await getHamitudes();
-  return hamitudes.methods.signHabitContract(habitId).send(
-    {
-      from: wallet.accounts[0],
-      value: stake * duration
-    }
-  );
-}
+// // sign a habit contract
+// async function signHabitContract(habitId) {
+//   const hamitudes = await getHamitudes();
+//   return hamitudes.methods.createHabitContract(habitId);
+// }
 
-// upload a photo proof
-async function proveOrBluff(habitId, isBluffing) {
-  // take photo using webcam
-  // var picture = webcam.snap();
-  // console.log(picture);
-  // upload photo to ??? (IPFS?)
-  // console.log('picture stored to IPFS!');
-  let proof = ethers.utils.formatBytes32String('This is a proof!');
-  if (isBluffing) {
-    proof = ethers.utils.formatBytes32String("This is a bluff.");
-  }
-  const hamitudes = await getHamitudes();
-  return hamitudes.methods.proveOrBluff(habitId, proof).send({
-    from: wallet.accounts[0]
-  });
-}
+// // upload a photo proof
+// async function proveOrBluff(habitId) {
+//   // take photo using webcam
+//   var picture = webcam.snap();
+//   console.log(picture);
+//   // upload photo to ??? (IPFS?)
+//   console.log('picture stored to IPFS!');
+//   var proof = 'This is the proof that the picture has been uploaded!';
+//   const hamitudes = await getHamitudes();
+//   return hamitudes.methods.proveOrBluff(habitId, proof);
+// }
 
-// challenge someone's proof
-async function challengeProof(habitId, buddy, stake) {
-  const hamitudes = await getHamitudes();
-  return hamitudes.methods.challengeProof(habitId, buddy).send({
-    from: wallet.accounts[0],
-    value: stake
-  });
-}
+// // challenge someone's proof
+// async function challengBuddy(habitId, buddy) {
+//   const hamitudes = await getHamitudes();
+//   return hamitudes.methods.challengeProof(habitId, buddy);
+// }
 
-// resolve a contract
-async function resolveHabit(habitId) {
-  const hamitudes = await getHamitudes();
-  return hamitudes.methods.resolveHabit(habitId).send({
-    from: wallet.accounts[0],
-  });
-}
+// // resolve a contract
+// async function resolveHabit(habitId) {
+//   const hamitudes = await getHamitudes();
+//   return hamitudes.methods.resolveHabit(habitId);
+// }
 
 module.exports = {
   getHamitudes: getHamitudes
