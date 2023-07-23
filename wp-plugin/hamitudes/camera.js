@@ -37,6 +37,11 @@ function takePhoto(){
     return picture;
 }
 
+function checkBluff(){
+    console.log("checkBluff()");
+    document.getElementById("photo_them").setAttribute("src", "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,g_xy_center,h_512,q_80,w_1024,x_712,y_474/v1/clients/toronto/Solmaz_Khosrowshahian_Owned_478_wl_f154abd8_a587_413f_95b7_04662e00861c_medium_b48e38b4-df84-4d9a-a646-f8cf6de6c69b.jpg")
+}
+
 
 $(document).ready(function(){
     try {
@@ -50,5 +55,12 @@ $(document).ready(function(){
         console.log("hide 4b");
     } catch {
         console.warn("btn_take_photo event listener not added");
+    }
+    try {
+        document.getElementById("btn_call_bluff").addEventListener("click", async () => {
+            checkBluff();
+        });
+    } catch {
+        console.warn("btn_call_bluff event listener not added");
     }
 });
