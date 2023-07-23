@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@nouns/sdk": "^0.4.0",
+    "fs": "^0.0.1-security"
+  }
+}
