@@ -13,6 +13,12 @@ function setWallet(accounts) {
     console.log(wallet);
 }
 
+var signer;
+function setSigner(signer) {
+    signer = signer;
+    console.log("signer address: ", signer.address);
+}
+
 const connectMM_web3js = async () => {                
     let accounts = await window.ethereum.request({  
         method: "eth_requestAccounts",                

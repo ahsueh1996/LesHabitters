@@ -41,6 +41,7 @@ function my_enqueue_scripts() {
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://c0f4f41c-2f55-4863-921b-sdk-docs.github.io/cdn/metamask-sdk.js"></script> <!-- metamask sdk -->
     <script src="https://bundle.run/buffer@6.0.3"></script> <!-- Needed by xmtp.js sdk bundle -->
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
     <?php
 
     $inline_script = '
