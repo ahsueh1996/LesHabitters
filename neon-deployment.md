@@ -1,0 +1,2 @@
+ACCOUNT_PRIVATE_KEY="<private key>"
+RPC_URL="https://devnet.neonevm.org"
