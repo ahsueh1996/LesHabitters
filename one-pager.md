@@ -1,23 +1,23 @@
-Habitrac: Revolutionizing Habit Building with Gamification and Verifiable Habitual Activity 
+**Habitrac: Revolutionizing Habit Building with Gamification and Verifiable Habitual Activity**
  
 Habitrac is a gamified habit building application augmented with verifiable habitual activity powered by zero-knowledge blockchain. Its uniqueness lies in the fact that the regular commitment of a user can be confidentially verified by smart contracts on a zero knowledge blockchain. Commitment verification ensures fairness in game and effectiveness of habit building routine. 
  
-Problem and Solution: 
+**Problem and Solution:**
 Currently, there is no habit building app built with social games and verifiable regular commitment. There is nothing stopping users from declaring habitual commitment in order to gain advantage in the game they play. This is a play-by-honour system at best and an ineffective habit building at worst. For people who seek a gamified experience, Habitrac provides a gamified habit building platform that verifies their commitment to reduce system abuse. 
  
-Key Features: 
+**Key Features:**
 Habitrac combines the use of customizable accountability contracts, users' social circle interaction and gamified competition on verifiable habitual activities to create a fun and engaging habit building experience. 
  
 Accountability contracts: The followings are a set of parameters a user can configure to set the rules of engagement for all participants: 
  
-Name of the habit  
-Duration of the contract  
-Frequency of compliant actions  
-Cutoff time for each habit compliance period  
-Method to prove habit compliance  
-Friends to include in the accountability contract  
-Minimum amount of participants in the contract  
-Duration of Invitation period 
+- Name of the habit  
+- Duration of the contract  
+- Frequency of compliant actions  
+- Cutoff time for each habit compliance period  
+- Method to prove habit compliance  
+- Friends to include in the accountability contract  
+- Minimum amount of participants in the contract  
+- Duration of Invitation period 
  
 This is important because the type of commitment new habits need is highly situational and to maximize the effect of these efforts, users are given the option to control what works best for them. 
  
@@ -27,7 +27,7 @@ The most critical key feature of Habitrac is the verifiable proof submission. In
  
 Habitrac is designed for people who see values and benefits in converting their habit building journey into a game. We aim to provide a platform where falsification is not possible, and forces the users to maximize both of their commitment to game playing and habit building. 
  
-How It Works: 
+**How It Works:**
 When a user wants to start a new round of habit building effort, he / she creates a new accountability contract by configuring a few parameters: 
  
 Name of the habit 
@@ -55,11 +55,11 @@ Once all participants their chances of being called bluff, the cards are reveale
  
 Here are the modifier breakdown: 
  
-Successful bluff call: +1 currency 
-Failed bluff call: -1 currency 
-Successful defence: +1 currency 
-Failed defence: -1 currency 
-No call or no defence: +0 currency 
+- Successful bluff call: +1 currency 
+- Failed bluff call: -1 currency 
+- Successful defence: +1 currency 
+- Failed defence: -1 currency 
+- No call or no defence: +0 currency 
  
 The habit compliance resolution happens at the end of each habit compliance period until the end of the contract duration. At the end of the contract duration, participants who are habit compliant for over 80% will be marked as successful habit builder for the habit in the contract. 
  
@@ -67,10 +67,10 @@ If participants are willing to share one or more of their proofs, the proofs wil
  
 This is how Habitrac helps its user commit to a fun, gamified process of habit building. 
  
-Target Audience: 
+**Target Audience:**
 Habitrac targets people who prefer to gamify their habit building journey. Sometimes you just have to be in the game mood to start doing anything that falls under the category of "I know it's good for me but I just don't feel like doing it". It's also meant for people who need an accountability partner. Habitrac makes collaboration with friends or family fun and seamless. 
  
-Future Direction: 
+**Future Direction:**
 Habitrac will become a social app that 1) promote personal development and 2) meet growth minded friends. 
  
 This is a quick overview on using the future Habitrac: 
@@ -83,11 +83,11 @@ This is a quick overview on using the future Habitrac:
  
 We want to bring people together in the name of habit build and personal development. We want to create a platform that encourages healthy and productive relationship among people. 
  
-Challenges: 
+**Challenges:**
 The major challenge Habitrac faces is a shortage of development talent. It is an essential resource required to bring Habitrac into market. 
  
-Innovation: 
+**Innovation:**
 The most critical innovation introduced by Habitrac is the concept of verifiable habitual activity proof. This plays an important role in balancing habit building effort and game play performance in a gamified habit building system. 
  
-Conclusion: 
+**Conclusion:**
 Habitrac aims to help people build new habits through customizable accountability contract, social interaction and verifiable habitual effort. In the future, Habitrac will become a social platform with personal development as the core theme.
